@@ -4,7 +4,7 @@ absoluteUrl = (url, hostname) ->
   base.href = hostname
 
   resolver = document.createElement('a')
-  resolver.href = url;
+  resolver.href = url
 
   resolver.href
 
