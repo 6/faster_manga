@@ -2,9 +2,9 @@ Chrome extension that prerenders the next page on manga sites to make the next p
 
 ### Supported sites
 
-* [MangaHere](http://www.mangahere.com/)
 * [MangaFox](http://mangafox.me/)
-* [MangaReader](http://www.mangareader.net/) - note: prerendering seems to be blocked on this site
+* [MangaHere](http://www.mangahere.com/)
+* [MangaStream](http://www.mangastream.com/)
 
 ### Instructions
 

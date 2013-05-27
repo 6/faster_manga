@@ -6,8 +6,8 @@
   ,"content_scripts": [{
     "matches": [
       "http://*.mangahere.com/manga/*"
-      ,"http://*.mangareader.net/*"
       ,"http://*.mangafox.me/manga/*"
+      ,"http://*.mangastream.com/read/*"
     ]
     ,"js": [
       "vendor/url.js"

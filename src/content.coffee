@@ -38,10 +38,13 @@ class MangaReader extends Prerenderer
 class MangaFox extends Prerenderer
   nextPageSelector: "a.next_page:first"
 
+class MangaStream extends Prerenderer
+  nextPageSelector: "#controls a.active + a"
+
 prerenderer = {
   "mangahere.com": MangaHere
-  "mangareader.net": MangaReader
   "mangafox.me": MangaFox
+  "mangastream.com": MangaStream
 }[url('domain')]
 
 new prerenderer?().prerender()
