@@ -8,16 +8,24 @@ absoluteUrl = (url, hostname) ->
 
   resolver.href
 
-nextPage = ->
-  href = $(".next_page:first").attr("href")
-  unless url('hostname', href)?
-    href = absoluteUrl(href, url('hostname'))
-  href
+class Prerenderer
+  nextPage: =>
+    href = $(@nextPageSelector).attr("href")
+    unless url('hostname', href)?
+      href = absoluteUrl(href, url('hostname'))
+    href
 
-prerender = ->
-  nextPageUrl = nextPage()
-  return  unless nextPageUrl?
-  console.log("Prerendering: #{nextPageUrl}")
-  $("<link rel='prerender' href='#{nextPageUrl}'>").appendTo("head")
+  prerender: =>
+    nextPageUrl = @nextPage()
+    return  unless nextPageUrl?
+    console.log("Prerendering: #{nextPageUrl}")
+    $("<link rel='prerender' href='#{nextPageUrl}'>").appendTo("head")
 
-prerender()
+class MangaHere extends Prerenderer
+  nextPageSelector: "a.next_page:first"
+
+prerenderer = {
+  "mangahere.com": MangaHere
+}[url('domain')]
+
+new prerenderer().prerender()
