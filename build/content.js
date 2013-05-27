@@ -5,17 +5,23 @@
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  absoluteUrl = function(url, hostname) {
-    var base, resolver;
+  absoluteUrl = function(urlToResolve, hostname) {
+    var docHead, oldBase, oldHref, resolvedUrl, resolver, tempBase;
 
-    base = $("base")[0];
-    if (base == null) {
-      base = $("<base>").appendTo("head")[0];
-    }
-    base.href = hostname;
+    oldBase = $('base')[0];
+    oldHref = oldBase && oldBase.href;
+    docHead = $('head')[0];
+    tempBase = oldBase || docHead.appendChild(document.createElement('base'));
     resolver = document.createElement('a');
-    resolver.href = url;
-    return resolver.href;
+    tempBase.href = hostname;
+    resolver.href = urlToResolve;
+    resolvedUrl = resolver.href;
+    if (oldBase != null) {
+      oldBase.href = oldHref;
+    } else {
+      docHead.removeChild(tempBase);
+    }
+    return resolvedUrl;
   };
 
   Prerenderer = (function() {

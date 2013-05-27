@@ -1,12 +1,19 @@
-absoluteUrl = (url, hostname) ->
-  base = $("base")[0]
-  base ?= $("<base>").appendTo("head")[0]
-  base.href = hostname
+absoluteUrl = (urlToResolve, hostname) ->
+  oldBase = $('base')[0]
+  oldHref = oldBase && oldBase.href
+  docHead = $('head')[0]
+  tempBase = oldBase || docHead.appendChild(document.createElement('base'))
 
   resolver = document.createElement('a')
-  resolver.href = url
+  tempBase.href = hostname
+  resolver.href = urlToResolve
+  resolvedUrl  = resolver.href
 
-  resolver.href
+  if oldBase?
+    oldBase.href = oldHref
+  else
+    docHead.removeChild(tempBase)
+  resolvedUrl
 
 class Prerenderer
   nextPage: =>
