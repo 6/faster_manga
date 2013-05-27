@@ -1,5 +1,7 @@
 Chrome extension that prerenders the next page on manga sites to make the next page load much more quickly.
 
+[Install from Chrome Web Store](https://chrome.google.com/webstore/detail/faster-manga/gjipaneokfjepkhpjkkpebbjikfpdckd)
+
 ### Supported sites
 
 * [MangaFox](http://mangafox.me/)
