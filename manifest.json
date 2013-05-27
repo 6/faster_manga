@@ -10,7 +10,7 @@
     ,"js": [
       "vendor/url.js"
       , "vendor/jquery.js"
-      , "content.js"
+      , "build/content.js"
     ]
     ,"run_at": "document_end"
   }]
