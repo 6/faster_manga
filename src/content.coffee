@@ -18,7 +18,8 @@ absoluteUrl = (urlToResolve, hostname) ->
 class Prerenderer
   nextPage: =>
     href = $(@nextPageSelector).attr("href")
-    unless url('hostname', href)?
+    hostname = url('hostname', href)
+    unless hostname? && hostname != ""
       href = absoluteUrl(href, url('hostname'))
     href
 

@@ -31,10 +31,11 @@
     }
 
     Prerenderer.prototype.nextPage = function() {
-      var href;
+      var hostname, href;
 
       href = $(this.nextPageSelector).attr("href");
-      if (url('hostname', href) == null) {
+      hostname = url('hostname', href);
+      if (!((hostname != null) && hostname !== "")) {
         href = absoluteUrl(href, url('hostname'));
       }
       return href;
