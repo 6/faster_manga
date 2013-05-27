@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2
+  ,"name": "Faster Manga"
+  ,"version": "0.1.0"
+  ,"description": "Faster manga reading"
+  ,"content_scripts": [{
+    "matches": [
+      "http://*.mangahere.com/manga/*"
+    ]
+    ,"js": [
+      "vendor/url.js"
+      , "vendor/jquery.js"
+      , "content.js"
+    ]
+    ,"run_at": "document_end"
+  }]
+}
