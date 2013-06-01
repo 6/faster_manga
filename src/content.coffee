@@ -32,9 +32,6 @@ class Prerenderer
 class MangaHere extends Prerenderer
   nextPageSelector: "a.next_page:first"
 
-class MangaReader extends Prerenderer
-  nextPageSelector: ".next a:first"
-
 class MangaFox extends Prerenderer
   nextPageSelector: "a.next_page:first"
 
